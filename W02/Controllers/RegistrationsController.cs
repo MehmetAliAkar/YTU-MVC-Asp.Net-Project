@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using W02.Models;
 
 namespace W02.Controllers
 {
@@ -7,34 +8,35 @@ namespace W02.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(StudentsDbTable.OrderBy(p => p.Id).ToList());
         }
+        
+        public static List<Student> StudentsDbTable = new List<Student>()
+        {
+
+            new Student
+            {
+                Id = 1,
+                FirstName = "Mali",
+                LastName = "Akar",
+                Department = "Math Eng",
+            },
+
+            new Student
+            {
+                Id = 2,
+                FirstName = "Okan",
+                LastName = "Akar",
+                Department = "Turkish",
+            },
+        };
 
         [HttpGet]
         public IActionResult About(int id)
         {
-            if (id == 1)
-            {
-                ViewBag.id = id;
-                ViewBag.firstName = "Mali";
-                ViewBag.lastName = "Akar";
-                ViewBag.department = "Math Eng";
-            }else if (id == 2)
-            {
-                ViewBag.id = id;
-                ViewBag.firstName = "Okan";
-                ViewBag.lastName = "Akar";
-                ViewBag.department = "Turkish";
-            }
-            else
-            {
-                ViewBag.id = -1;
-                ViewBag.firstName = "No data";
-                ViewBag.lastName = "No data";
-                ViewBag.department = "No data";
-            }
+            Student student = StudentsDbTable.FirstOrDefault(p => p.Id == id);
 
-            return View();
+            return View(student);
         }
 
 
@@ -45,12 +47,42 @@ namespace W02.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(long id, string name, string lastName, string department)
+        public IActionResult Create(Student student)
         {
-            return View();
+            //save data to database
+            StudentsDbTable.Add(student);
+
+            return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+	        Student student = StudentsDbTable.FirstOrDefault(p => p.Id == id);
+			return View(student);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Student student)
+        {
+			Student OldStudent = StudentsDbTable.FirstOrDefault(p => p.Id == student.Id);
+
+			StudentsDbTable.Remove(OldStudent);
+
+			StudentsDbTable.Add(student);
+
+	        return RedirectToAction("Index");
+        }
+
+		[HttpGet]
+        public IActionResult Delete(int id)
+        {
+	        Student student = StudentsDbTable.FirstOrDefault(p => p.Id == id);
+	        StudentsDbTable.Remove(student);
+			return RedirectToAction("Index");
+		}
 
 
-    }
+
+	}
 }
