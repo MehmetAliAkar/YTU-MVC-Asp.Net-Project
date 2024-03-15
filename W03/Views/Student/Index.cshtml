@@ -16,17 +16,25 @@ Student List
 		foreach (var student in Model)
 		{
 
-			<tr>
-				<td>@student.Id</td>
-				<td>@student.Name</td>
-				<td>@student.Email</td>
-				<td>@student.Age</td>
-				<td style="width:200px">
-					<a asp-controller="Student" asp-action="Create" class="btn btn-sm btn-sm btn-primary">Create</a>
-					<a asp-controller="Student" asp-action="Edit" asp-route-studentId="@student.Id"  class="btn btn-sm btn-sm btn-success">Edit</a>
-					<a asp-controller="Students" asp-action="Delete" class="btn btn-sm btn-sm btn-danger">Delete</a>
-				</td>
-			</tr>
+					<tr>
+						<td>@student.Id</td>
+						<td>@student.Name</td>
+						<td>@student.Email</td>
+						<td>@student.Age</td>
+						<td style="width:200px">
+							<a asp-controller="Student" asp-action="Create" class="btn btn-sm btn-sm btn-primary">Create</a>
+							<a asp-controller="Student" asp-action="Edit" asp-route-studentId="@student.Id"  class="btn btn-sm btn-sm btn-success">Edit</a>
+							<a onClick="Delete('@student.Id')" asp-route-studentId="@student.Id" class="btn btn-sm btn-sm btn-danger">Delete</a>
+						</td>
+					</tr>
 		}
 	}
 </table>
+
+<script>
+	function Delete(studentId){
+		if (confirm("Are you sure to delete this record?")) {
+			window.location = "/Student/Delete?studentId="+studentId; 
+		}
+	}
+</script>

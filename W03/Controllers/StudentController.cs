@@ -60,5 +60,15 @@ namespace W03.Controllers
 
 			return View(student);
 		}
+
+		[HttpGet]
+		public IActionResult Delete(int studentId)
+		{
+			var student = SchoolDB.Students.FirstOrDefault(p => p.Id == studentId);
+
+			SchoolDB.Students.Remove(student);
+
+			return RedirectToAction("Index");
+		}
 	}
 }
