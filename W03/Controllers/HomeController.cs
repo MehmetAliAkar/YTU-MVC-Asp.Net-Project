@@ -10,8 +10,12 @@ namespace W03.Controllers
 
 		public HomeController(ILogger<HomeController> logger)
 		{
+			SchoolDB.InitialiazeDb(50);
 			_logger = logger;
+			
 		}
+
+
 
 		public IActionResult Index()
 		{

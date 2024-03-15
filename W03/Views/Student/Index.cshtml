@@ -1,0 +1,32 @@
+﻿@model List<Student>
+
+
+Student List
+
+<table class="table table-sm table-dark">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Age</th>
+		<th>Actions</th>
+	</tr>
+
+	@{
+		foreach (var student in Model)
+		{
+
+			<tr>
+				<td>@student.Id</td>
+				<td>@student.Name</td>
+				<td>@student.Email</td>
+				<td>@student.Age</td>
+				<td style="width:200px">
+					<a asp-controller="Student" asp-action="Create" class="btn btn-sm btn-sm btn-primary">Create</a>
+					<a asp-controller="Student" asp-action="Edit" asp-route-studentId="@student.Id"  class="btn btn-sm btn-sm btn-success">Edit</a>
+					<a asp-controller="Students" asp-action="Delete" class="btn btn-sm btn-sm btn-danger">Delete</a>
+				</td>
+			</tr>
+		}
+	}
+</table>
