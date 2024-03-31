@@ -9,17 +9,17 @@ namespace ObsWebUI.Models.EfDbContext
 		{
 			base.OnConfiguring(optionsBuilder);
 
-			optionsBuilder.UseSqlServer("server=.;database=YtuSchoolDb;trusted_connection=true;");
+			optionsBuilder.UseSqlServer("server=.;database=YtuSchoolDb;trusted_connection=true;MultipleActiveResultSets=true;TrustServerCertificate=True;" );
 		}
 
-		public List<Course>? Courses { get; set; }
-		public List<Department>? Departments { get; set; }
-		public List<Exam>? Exams { get; set; }
-		public List<ExamResult>? ExamResults { get; set; }
-		public List<Faculty>? Faculties { get; set; }
-		public List<Instructor>? Instructors { get; set; }
-		public List<InstructorCourse>? InstructorCourses { get; set; }
-		public List<Student>? Students { get; set; }
-		public List<StudentCourse>? StudentCourses { get; set; }
+		public DbSet<Course>? Courses { get; set; }
+		public DbSet<Department>? Departments { get; set; }
+		public DbSet<Exam>? Exams { get; set; }
+		public DbSet<ExamResult>? ExamResults { get; set; }
+		public DbSet<Faculty>? Faculties { get; set; }
+		public DbSet<Instructor>? Instructors { get; set; }
+		public DbSet<InstructorCourse>? InstructorCourses { get; set; } 
+		public DbSet<Student>? Students { get; set; }
+		public DbSet<StudentCourse>? StudentCourses { get; set; }
 	}
 }
