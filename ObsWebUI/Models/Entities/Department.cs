@@ -3,16 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ObsWebUI.Models.Entities
 {
-	public class Course
+	public class Department
 	{
 		[Key]
 		public int Id { get; set; }
-
-		[ForeignKey("DepartmentId")]
 		[Required(ErrorMessage = "This is required!")]
-		public int DepartmentId { get; set; }
+		[ForeignKey("FacultyId")]
+		public int FacultyId { get; set; }
 		[Required(ErrorMessage = "This is required!")]
 		public string? Name { get; set; }
-		
 	}
 }
