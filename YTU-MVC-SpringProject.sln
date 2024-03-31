@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "W01", "W01\W01.csproj", "{1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "W02", "W02\W02.csproj", "{1F222793-F2BD-4C2E-83B6-BB0A24268C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W03", "W03\W03.csproj", "{B43F8B45-C837-4DAC-AFBA-A1CFF961CD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "W03", "W03\W03.csproj", "{B43F8B45-C837-4DAC-AFBA-A1CFF961CD73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObsWebUI", "ObsWebUI\ObsWebUI.csproj", "{0B6860F3-2C44-459C-84D4-528E1FEA6831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B43F8B45-C837-4DAC-AFBA-A1CFF961CD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B43F8B45-C837-4DAC-AFBA-A1CFF961CD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B43F8B45-C837-4DAC-AFBA-A1CFF961CD73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6860F3-2C44-459C-84D4-528E1FEA6831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6860F3-2C44-459C-84D4-528E1FEA6831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6860F3-2C44-459C-84D4-528E1FEA6831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6860F3-2C44-459C-84D4-528E1FEA6831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
