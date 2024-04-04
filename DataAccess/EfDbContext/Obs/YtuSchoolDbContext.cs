@@ -12,7 +12,7 @@ namespace DataAccess.EfDbContext.Obs
             optionsBuilder.UseSqlServer("server=.;database=YtuSchoolDb;trusted_connection=true;MultipleActiveResultSets=true;TrustServerCertificate=True;");
         }
 
-        public DbSet<Course>? Courses { get; set; }
+        public DbSet<Course>? Courses { get; set; }  
         public DbSet<Department>? Departments { get; set; }
         public DbSet<Exam>? Exams { get; set; }
         public DbSet<ExamResult>? ExamResults { get; set; }
