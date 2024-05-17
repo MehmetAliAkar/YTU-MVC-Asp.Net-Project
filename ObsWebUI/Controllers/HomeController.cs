@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ObsWebUI.Models;
 using System.Diagnostics;
+using ObsWebUI.Models.EfDbContext;
 
 namespace ObsWebUI.Controllers
 {
@@ -15,6 +16,7 @@ namespace ObsWebUI.Controllers
 
         public IActionResult Index()
         {
+                
             return View();
         }
 
